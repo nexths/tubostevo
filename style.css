@@ -734,21 +734,21 @@ footer {
 /* ==========================================
    RESPONSIVIDADE (MOBILE & TABLET)
 ========================================== */
-@media (max-width: 900px) {
-    .empresa-container, .contato-container {
-        flex-direction: column;
-    }
-
-    .empresa-img {
-        height: 320px;
-    }
-}
-
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 5%;
+    .navbar,
+    .navbar.scrolled {
+        padding: 12px 4%;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo span {
+        font-size: 17px;
+        padding: 2px 8px;
     }
 
     .menu {
@@ -758,24 +758,47 @@ footer {
     }
 
     .menu a {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    /* Esconde o botão redundante na navbar mobile para liberar espaço */
+    .menu .btn-nav {
+        display: none;
     }
 
     .hero {
-        padding-top: 150px;
-        min-height: 85vh;
+        padding-top: 135px;
+        padding-bottom: 95px;
+        min-height: auto;
     }
 
     .hero-content h1 {
-        font-size: 32px;
+        font-size: 28px;
+        line-height: 1.25;
+        margin-bottom: 16px;
     }
 
     .hero-content p {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 15px;
     }
 
     .features-bar {
-        margin-top: -30px;
+        margin-top: -35px;
     }
 
     .products-grid {
