@@ -24,13 +24,17 @@
         <span class="tooltip-wpp">Orçamento Online</span>
     </a>
 
-    <!-- Navbar Glassmorphism -->
+    <!-- Navbar Glassmorphism com Menu Hambúrguer -->
     <header class="navbar" id="navbar">
         <a href="#home" class="logo">
             TUBOS <span>TEVÓ</span>
         </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+            <i class="fas fa-bars"></i>
+        </button>
         
-        <nav class="menu">
+        <nav class="menu" id="menu">
             <a href="#home">Início</a>
             <a href="#produtos">Produtos</a>
             <a href="#empresa">A Fábrica</a>
@@ -41,7 +45,7 @@
         </nav>
     </header>
 
-    <!-- Hero Banner (Limpo, sem badge laranja) -->
+    <!-- Hero Banner -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content fade-up">
@@ -239,7 +243,7 @@
         </div>
     </footer>
 
-    <!-- Script Leve para Animação Fade-Up e Efeito na Navbar -->
+    <!-- Script Leve para Animação Fade-Up, Navbar e Menu Hambúrguer -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = {
@@ -265,6 +269,26 @@
                 } else {
                     navbar.classList.remove("scrolled");
                 }
+            });
+
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+            const toggleIcon = menuToggle.querySelector("i");
+
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("active");
+                if (menu.classList.contains("active")) {
+                    toggleIcon.classList.replace("fa-bars", "fa-times");
+                } else {
+                    toggleIcon.classList.replace("fa-times", "fa-bars");
+                }
+            });
+
+            menu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    menu.classList.remove("active");
+                    toggleIcon.classList.replace("fa-times", "fa-bars");
+                });
             });
         });
     </script>
